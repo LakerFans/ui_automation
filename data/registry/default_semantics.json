@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "synonyms": {
+    "新增": ["新建", "创建", "add", "Add"],
+    "删除": ["移除", "delete", "Delete"],
+    "用户名": ["账号", "username", "user name", "登录名"],
+    "密码": ["password", "pwd"],
+    "登录": ["login", "sign in", "Sign In"],
+    "登录按钮": ["提交", "Continue", "Sign in"],
+    "搜索": ["search", "查询", "keyword"],
+    "搜索框": ["search input", "keyword", "查询"],
+    "提交": ["确认", "保存", "Submit", "OK"],
+    "确认": ["确定", "Confirm", "Yes"]
+  },
+  "pages": [
+    {
+      "url_pattern": "*/login*",
+      "name": "登录页",
+      "components": ["Form"],
+      "fields": {
+        "用户名": {"type": "input", "required": true},
+        "密码": {"type": "input", "required": true}
+      },
+      "actions": {
+        "登录按钮": {"type": "button", "region": "form"}
+      }
+    },
+    {
+      "url_pattern": "*/users*",
+      "name": "用户管理",
+      "components": ["Table", "Form", "Modal"],
+      "fields": {
+        "用户名": {"type": "input", "required": true},
+        "手机号": {"type": "input", "required": true},
+        "部门": {"type": "select", "required": false},
+        "搜索框": {"type": "input", "required": false}
+      },
+      "actions": {
+        "新增": {"type": "button", "region": "toolbar"},
+        "删除": {"type": "button", "region": "toolbar"},
+        "提交": {"type": "button", "region": "modal"},
+        "确认": {"type": "button", "region": "dialog"}
+      }
+    }
+  ],
+  "risk_keywords": ["删除", "批量", "覆盖", "清空", "drop"]
+}
